@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from './http.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Client Side Application ';
-   data;
+  data;
+
+  constructor(private http: HttpService) {}
+  ngOnInit() {}
+
+  onClick() {
+    this.data = this.http.getData();
+  }
 }
